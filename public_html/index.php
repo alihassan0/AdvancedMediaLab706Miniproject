@@ -1,3 +1,6 @@
+<?php
+    require_once("templates/header.php");
+?>
 <html>
 <head>
 	<title> e-commerce site</title>
