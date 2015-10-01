@@ -34,5 +34,15 @@
 		</div>
        </div>
 	</div>​
+	<div class="product">
+	    <a href="http://nicolette.ro/sapphire-html/product.html">
+	    <img alt="dress3" src="Sapphire_files/dress6home.jpg"></a>
+		<div class="name">
+	    	<a href="">Floral Dress</a>
+	    </div>
+	    <div class="price">
+	    	<p>$500.00</p>
+	    </div>
+	</div>
 </body>
 </html>
