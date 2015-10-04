@@ -9,8 +9,6 @@ if ( isset( $_POST['action'] ) ) {
     case 'signup': signUp();break;
     case 'upload_image':uploadImage();break;
     case 'add_to_cart':addToCart();break;
-
-
     }
     exit();
 }
@@ -27,6 +25,20 @@ function logIn( $eMail , $password ) {
     else {
         echo 1; //navigate to sign up page
     }
+    //---------------------------------------------------
+    $conn->close();
+}
+function loadProducts() {
+    $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
+    //----------------------------------------------------
+    $return_arr = Array();
+    $sql = "select * from product";
+    $result = $conn->query( $sql );
+    
+    while ( $row = $result->fetch_assoc()) 
+        array_push($return_arr, array('id' => $row["id"],'name' => $row["name"], 'stock'=> $row["stock"],'description'=> $row["description"] , 'thumbnail'=> $row["description"]));
+
+    echo json_encode($arr);
     //---------------------------------------------------
     $conn->close();
 }
@@ -66,7 +78,6 @@ function showInTable( $result ) {
 
                                 else
                                     echo "<td>".$row[$key]."</td>";
-
             }
             echo "</tr>";
         }

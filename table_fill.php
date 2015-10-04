@@ -9,6 +9,6 @@ $json = json_decode($text, true);//parse Json data
 
 foreach ($json['data'] as $key => $value)
 {
-	mysqli_query($con , "insert into product(name,thumbnail,stock,description) values('$value[name]','$value[path]',5 , 'fresh')");
+	mysqli_query($con , "insert into product(name,thumbnail,stock,deaggregate(object)scription) values('$value[name]','$value[path]',5 , 'fresh')");
 }
 ?>

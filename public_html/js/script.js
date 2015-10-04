@@ -1,3 +1,4 @@
+var alertMsg = '<div class="alert alert-danger" role="alert"> either your email or password are incorrect .. please try again</div>'
 $(document).ready(function() {
   $(".login").click(function () {
   	  var ajaxurl = 'ajax.php',
@@ -16,4 +17,3 @@ $(document).ready(function() {
 	  });
   });
 });
-var alertMsg = '<div class="alert alert-danger" role="alert"> either your email or password are incorrect .. please try again</div>'
