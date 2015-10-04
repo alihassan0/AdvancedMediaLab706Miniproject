@@ -2,9 +2,6 @@
     require_once("templates/header.php");
 ?>
 <div id="container stitched">
-    <?php
-        require_once("templates/rightPanel.php");
-    ?>
     <div class = "col-md-8" id="content">
         <!-- content -->
         this is an e-commerce site<br>
