@@ -13,7 +13,24 @@ $(document).ready(function() {
 	  		$(".error").empty();
             $(".error").append(alertMsg);
 	    }
-	    alert("asd");
 	  });
   });
 });
+
+function loadProducts() {
+	  var ajaxurl = 'ajax.php',
+	  data =  {'action': 'load_products'};
+	  $.post(ajaxurl, data, function (response) {
+		var products = JSON.parse(response);
+		for (var i = 0; i < products.length; i++) {
+			var product = $(".template");
+			$(".template > .thumbnail > .productImage").attr("src",products[i].thumbnail);
+			$(".template > .thumbnail > .caption > .productName").html(products[i].name);
+			$(".template > .productDescription").html(products[i].description);
+			product.clone().removeClass("template").addClass(products[i].id).prependTo( ".row" );
+		};
+		//$(".template").remove();
+	  });
+  };
+
+

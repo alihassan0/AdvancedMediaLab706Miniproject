@@ -1,10 +1,10 @@
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="css/style2.css">
-		<title>home</title>
-	</head>
-	<body>
+
+<?php
+    require_once("templates/header.php");
+?>
+<div id="container">
+    <!-- content -->
+    <script >loadProducts();</script>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to our grocery shop</h1>
@@ -13,33 +13,20 @@
         <a class="btn btn-primary btn-lg" href="#" role="button">logIn</a>
       </div>
     </div>
-		<div class="page-container">
-			<div class="row">
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <img src="img/btngan.jpg" alt="...">
-          <div class="caption">
-            <h3>btngan</h3>
-            <p>best btngan evaaaa...</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <img src="img/btngan.jpg" alt="...">
-          <div class="caption">
-            <h3>btngan</h3>
-            <p>best btngan evaaaa...</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    <div class="page-container">
+      <div class="row">
+        <div class="template col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img class = "productImage" src="img/btngan.jpg" alt="...">
+            <div class="caption">
+              <h3 class = "productName" >btngan</h3>
+              <p class = "productDescription">best btngan evaaaa...</p>
+              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-</body>
-</html>
+<?php
+    require_once("templates/footer.php");
+?>

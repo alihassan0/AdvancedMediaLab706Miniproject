@@ -9,6 +9,7 @@ if ( isset( $_POST['action'] ) ) {
     case 'signup': signUp();break;
     case 'upload_image':uploadImage();break;
     case 'add_to_cart':addToCart();break;
+    case 'load_products':loadProducts();break;
     }
     exit();
 }
@@ -36,9 +37,9 @@ function loadProducts() {
     $result = $conn->query( $sql );
     
     while ( $row = $result->fetch_assoc()) 
-        array_push($return_arr, array('id' => $row["id"],'name' => $row["name"], 'stock'=> $row["stock"],'description'=> $row["description"] , 'thumbnail'=> $row["description"]));
+        array_push($return_arr, array('id' => $row["id"],'name' => $row["name"], 'stock'=> $row["stock"],'description'=> $row["description"] , 'thumbnail'=> $row["thumbnail"]));
 
-    echo json_encode($arr);
+    echo json_encode($return_arr);
     //---------------------------------------------------
     $conn->close();
 }

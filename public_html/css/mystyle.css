@@ -1,0 +1,27 @@
+.stitched {
+   background: #333333;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 4px dashed #000;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #333333, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+.thumbnail {
+  height: 300px;
+}
+
