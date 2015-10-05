@@ -15,10 +15,21 @@ $(document).ready(function() {
 	    }
 	  });
   });
+  $(".buy").click(function () {
+  	var r = confirm("are you sure ._.");
+  	if (r == true) {
+  	  var ajaxurl = 'ajax.php';
+  	  var id = $(this).attr("id")
+	  data =  {'action': 'buy','id': id, 'quantity': $(".quantity"+id).val()};
+	  $.post(ajaxurl, data, function (response) {
+	  	alert(response);
+	  });
+	 }
+  });
 });
 
 function loadProducts() {
-	  var ajaxurl = 'ajax.php',
+	  var ajaxurl = 'ajax.php';
 	  data =  {'action': 'load_products'};
 	  $.post(ajaxurl, data, function (response) {
 		var products = JSON.parse(response);
@@ -26,10 +37,13 @@ function loadProducts() {
 			var product = $(".template");
 			$(".template > .thumbnail > .productImage").attr("src",products[i].thumbnail);
 			$(".template > .thumbnail > .caption > .productName").html(products[i].name);
-			$(".template > .productDescription").html(products[i].description);
+			$(".template > .thumbnail > .caption > .productDescription").html(products[i].description);
+			$(".template > .thumbnail > .caption > .productStock").html(products[i].stock);
+			$(".template > .thumbnail > .caption > p > .productBuy").attr("id",products[i].id);
+			$(".template > .thumbnail > .caption > p > .productQuantity").attr('id', 'quantity'+products[i].id);
 			product.clone().removeClass("template").addClass(products[i].id).prependTo( ".row" );
 		};
-		//$(".template").remove();
+		$(".template").remove();
 	  });
   };
 

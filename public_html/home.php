@@ -1,4 +1,3 @@
-
 <?php
     require_once("templates/header.php");
 ?>
@@ -21,7 +20,9 @@
             <div class="caption">
               <h3 class = "productName" >btngan</h3>
               <p class = "productDescription">best btngan evaaaa...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              <p><input class = "productQuantity" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></p>
+              <p class = "productStock ">available:</p> 
+              <p><a href="#" id="" class="btn btn-default stitched buy productBuy" role="button">buy</a></p>
             </div>
           </div>
         </div>
