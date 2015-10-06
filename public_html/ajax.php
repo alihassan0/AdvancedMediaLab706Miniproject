@@ -56,7 +56,7 @@ function buy($id , $quantity) {
     $conn->close();
 }
 
-function signUp($eMail,$password,$firstname,$lasttname) {
+function signUp($eMail,$password,$firstname,$lastname) {
     $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
     $sql = "select * from user where eMail = " . $eMail .";";
     $result = $conn->query( $sql );
@@ -65,13 +65,14 @@ function signUp($eMail,$password,$firstname,$lasttname) {
         echo 'alert("this mail is already used")';
         echo '</script>'; 
     }
-    else if ($eMail == "" || $password == "" || $firstname == "" || $lasttname == "" )  {
+    else if ($eMail == "" || $password == "" || $firstname == "" || $lastname == "" )  {
         echo '<script language="javascript">';
         echo 'alert("you must enter the eMail , password ,firstname and lastname ")';
         echo '</script>';
     }
     else {
-       $sql = "insert into user(eMail,password,firstname,lastname) values(" . $eMail .",". $password .",". $firstname .",". $lastname .");";
+       $sql = "insert into user(eMail,password,firstname,lastname) values('" . $eMail ."','". $password ."','". $firstname ."','". $lastname ."');";
+        echo "ok";
        $result = $conn->query( $sql );     
     }
     $conn->close();

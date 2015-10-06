@@ -3,6 +3,7 @@
 ?>
 <div id="container stitched">
     <div class = "col-md-8" id="content">
+        <div class = "error"></div>
         <!-- content -->
         this is an e-commerce site<br>
 		first name : <input id = "fName" type="text" name="fname"><br>
