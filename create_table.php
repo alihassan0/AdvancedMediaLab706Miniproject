@@ -13,10 +13,12 @@ mysqli_query($con, "CREATE TABLE user(eMail varchar(50) NOT NULL,firstName varch
 mysqli_query($con, "CREATE TABLE product(id int NOT NULL AUTO_INCREMENT ,name varchar(20),
 					stock int NOT NULL, description varchar(100) , thumbnail varchar(100), PRIMARY KEY(id));");
 
+mysqli_query($con, "CREATE TABLE cart(id int NOT NULL , eMail varchar(50) NOT NULL ,sell int,
+					FOREIGN KEY (eMail) REFERENCES user(eMail),FOREIGN KEY (id) REFERENCES product(id),
+					PRIMARY KEY(id,eMail));");
 mysqli_query($con, "CREATE TABLE transaction(id int NOT NULL , eMail varchar(50) NOT NULL ,sell int,
 					FOREIGN KEY (eMail) REFERENCES user(eMail),FOREIGN KEY (id) REFERENCES product(id),
 					PRIMARY KEY(id,eMail));");
-
 ?>
 <?php 
 header("Location: table_fill.php");
