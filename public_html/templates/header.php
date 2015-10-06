@@ -20,7 +20,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"></script>
   </head>
-
+  <?php  session_start() ?>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -39,6 +39,23 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <?php 
+              if(isset($_SESSION["eMail"]))
+              {
+                echo '<li><a href="cart.php" role="button">'.$_SESSION["eMail"].'</a></li>';
+                echo '<li><a href="history.php" role="button">history</a></li>';
+                echo '<li><a href="cart.php" role="button">cart</a></li>';
+                echo '<li><a class="btn btn-default" href="signup.php" role="button">sign out</a></p></li>';
+              }
+              else
+              {
+                echo '<li><a class="btn btn-default" href="signup.php" role="button">sign up</a></p></li>';
+                echo '<li><a class="btn btn-default" href="index.php" role="button">sign in</a></p></li>';
+              }
+              ?>
+          </ul>
+          <li>$_SESSION["eMail"]</li>
         </div>
       </div>
     </nav>

@@ -4,6 +4,7 @@ $(document).ready(function() {
   	  var ajaxurl = 'ajax.php',
 	  data =  {'action': 'login','eMail': $("#userName").val(), 'password': $("#password").val()};
 	  $.post(ajaxurl, data, function (response) {
+	  	alert(response);
 	  	if(response == 0)
 	  	{
 	  		window.location = "home.php";
@@ -79,3 +80,21 @@ function loadProducts() {
 		$(".template").remove();
 	  });
   };
+function loadCartProducts() {
+	  var ajaxurl = 'ajax.php';
+	  data =  {'action': 'load_cart_products'};
+	  $.post(ajaxurl, data, function (response) {
+		var products = JSON.parse(response);
+		for (var i = 0; i < products.length; i++) {
+			var product = $(".template");
+			$(".template > .thumbnail > .productImage").attr("src",products[i].thumbnail);
+			$(".template > .thumbnail > .caption > .productName").html(products[i].name);
+			$(".template > .thumbnail > .caption > .productDescription").html(products[i].description);
+			$(".template > .thumbnail > .caption > .productStock").html(products[i].stock);
+			$(".template > .thumbnail > .caption > p > .productBuy").attr("id",products[i].id);
+			$(".template > .thumbnail > .caption > p > .productQuantity").attr('id', 'quantity'+products[i].id);
+			product.clone().removeClass("template").addClass(products[i].id).prependTo( ".row" );
+		};
+		$(".template").remove();
+	  });
+	};

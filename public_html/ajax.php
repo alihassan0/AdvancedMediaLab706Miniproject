@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "eBay";
+session_start();
 if ( isset( $_POST['action'] ) ) {
     switch ( $_POST['action'] ) {
     case 'login': logIn( $_POST['eMail'] , $_POST['password'] );break;
@@ -19,10 +20,11 @@ function logIn( $eMail , $password ) {
     $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
     //----------------------------------------------------
     $sql = "select * from user where eMail = '$eMail' and password = '$password';";
-    echo "$sql";
+    //echo "$sql";
     $result = $conn->query( $sql );
     //showInTable($result);
     if ( $result->num_rows > 0 ) {
+        $_SESSION["eMail"] = $eMail;
         echo 0;//navigate to php page 
     }
     else {
@@ -36,6 +38,20 @@ function loadProducts() {
     //----------------------------------------------------
     $return_arr = Array();
     $sql = "select * from product";
+    $result = $conn->query( $sql );
+    
+    while ( $row = $result->fetch_assoc()) 
+        array_push($return_arr, array('id' => $row["id"],'name' => $row["name"], 'stock'=> $row["stock"],'description'=> $row["description"] , 'thumbnail'=> $row["thumbnail"]));
+
+    echo json_encode($return_arr);
+    //---------------------------------------------------
+    $conn->close();
+}
+function loadCartProducts() {
+    $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
+    //----------------------------------------------------
+    $return_arr = Array();
+    $sql = "select product.id, product.thumbnail, transaction.quantity ,product.price from product , transaction where transaction.id = product.id;";
     $result = $conn->query( $sql );
     
     while ( $row = $result->fetch_assoc()) 
