@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="home.php">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -46,12 +46,12 @@
                 echo '<li><a href="cart.php" role="button">'.$_SESSION["eMail"].'</a></li>';
                 echo '<li><a href="history.php" role="button">history</a></li>';
                 echo '<li><a href="cart.php" role="button">cart</a></li>';
-                echo '<li><a class="btn btn-default" href="signup.php" role="button">sign out</a></p></li>';
+                echo '<li><a class="btn" href="signup.php" role="button">sign out</a></p></li>';
               }
               else
               {
-                echo '<li><a class="btn btn-default" href="signup.php" role="button">sign up</a></p></li>';
-                echo '<li><a class="btn btn-default" href="index.php" role="button">sign in</a></p></li>';
+                echo '<li><a  href="signup.php" role="button">sign up</a></p></li>';
+                echo '<li><a  href="index.php" role="button">sign in</a></p></li>';
               }
               ?>
           </ul>

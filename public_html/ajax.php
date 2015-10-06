@@ -7,12 +7,14 @@ session_start();
 if ( isset( $_POST['action'] ) ) {
     switch ( $_POST['action'] ) {
     case 'login': logIn( $_POST['eMail'] , $_POST['password'] );break;
+    case 'addtocart': buy($_POST['id'] , $_POST['quantity']);break;
     case 'buy': buy($_POST['id'] , $_POST['quantity']);break;
     case 'signup': signUp($_POST['eMail'] , $_POST['password'] ,$_POST['firstname'] , $_POST['lastname'] );break;
     case 'editprofile': editprofile($_POST['eMail'] , $_POST['password'] ,$_POST['firstname'] , $_POST['lastname'] ,$_POST['newpassword']);break;
     case 'upload_image':uploadImage();break;
     case 'add_to_cart':addToCart();break;
     case 'load_products':loadProducts();break;
+    case 'load_cart_products':loadCartProducts();break;
     }
     exit();
 }
@@ -53,23 +55,15 @@ function loadCartProducts() {
     $return_arr = Array();
     $sql = "select product.id, product.thumbnail, transaction.quantity ,product.price from product , transaction where transaction.id = product.id;";
     $result = $conn->query( $sql );
-    
     while ( $row = $result->fetch_assoc()) 
-        array_push($return_arr, array('id' => $row["id"],'name' => $row["name"], 'stock'=> $row["stock"],'description'=> $row["description"] , 'thumbnail'=> $row["thumbnail"]));
+        array_push($return_arr, array('id' => $row["id"],'thumbnail' => $row["thumbnail"], 'quantity'=> $row["quantity"],'price'=> $row["price"]));
 
     echo json_encode($return_arr);
     //---------------------------------------------------
     $conn->close();
 }
 function buy($id , $quantity) {
-    $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
-    //----------------------------------------------------
-    $return_arr = Array();
-    $sql = "insert into transaction(id,eMail) values('$id','omar.ihab.12@gmail.com')";
-    $result = $conn->query( $sql );
-    echo "$sql";
-    //---------------------------------------------------
-    $conn->close();
+    
 }
 
 function signUp($eMail,$password,$firstname,$lastname) {
@@ -124,7 +118,14 @@ function uploadImage() {
 
 }
 function addToCart() {
-
+    $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
+    //----------------------------------------------------
+    $return_arr = Array();
+    $sql = "insert into transaction(id,eMail,quantity) values('$id','omar.ihab.12@gmail.com','$quantity')";
+    $result = $conn->query( $sql );
+    echo "$sql";
+    //---------------------------------------------------
+    $conn->close();
 }
 
 ?>

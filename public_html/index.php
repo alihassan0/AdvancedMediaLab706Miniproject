@@ -1,8 +1,12 @@
 <?php
     require_once("templates/header.php");
 ?>
-<div id="container">
-    <!-- content -->
+<div class="jumbotron">
+  <div class="container">
+    
+  </div>
+</div>
+<div id="page-container">
     <div class = "row">
         <div class="col-md-4 col-md-offset-4">
         <div class = "error"></div>
