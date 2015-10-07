@@ -3,13 +3,13 @@
 ?>
 <div id="container">
     <!-- content -->
-    <script >loadProducts();</script>
+    <script >
+      loadProducts();
+    </script>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to our grocery shop</h1>
         <p>here you can find all the best fruits and vegetables</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">signUp</a>
-        <a class="btn btn-primary btn-lg" href="#" role="button">logIn</a>
       </div>
     </div>
     <div class="page-container">
@@ -21,13 +21,14 @@
               <h3 class = "productName" >btngan</h3>
               <p class = "productDescription">best btngan evaaaa...</p>
               <p><input class = "productQuantity" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></p>
+              <p class = "productStockmsg ">available:</p> 
               <p class = "productStock ">available:</p> 
-              <p><a href="#" id="" class="btn btn-default stitched buy productBuy" role="button">buy</a></p>
+              <p><a  id="" class="btn btn-default stitched cart productBuy" role="button">buy</a></p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>    
 <?php
     require_once("templates/footer.php");
 ?>

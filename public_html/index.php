@@ -12,7 +12,7 @@
         <div class = "error"></div>
         this is an e-commerce site<br>
         user name: <input id = "userName" type="text" name="fname"><br>
-        password: <input id = "password" type="text" name="lname"><br>
+        password: <input id = "password" type="password" name="lname"><br>
         <button class=" invoke btn btn-primary login" >login</button><p>
         <a class="btn btn-default" href="signup.php" role="button">signUp</a></p>
         <a href="">forgot password</a>

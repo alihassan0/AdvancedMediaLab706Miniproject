@@ -31,22 +31,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">btnganShop</a>
+          <a class="navbar-brand" href="home.php">btnganShop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="home.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <?php 
               if(isset($_SESSION["eMail"]))
               {
-                echo '<li><a href="cart.php" role="button">'.$_SESSION["eMail"].'</a></li>';
+                echo '<li><img class = "img-circle"src="img/avatars/'.$_SESSION["avatar"].'" alt="Image not found" onError="this.onerror=null;this.src='."'img/avatars/btngana.png'".'" /></li>';
+                echo '<li><a href="history.php" role="button">'.$_SESSION["eMail"].'</a></li>';
                 echo '<li><a href="history.php" role="button">history</a></li>';
                 echo '<li><a href="cart.php" role="button">cart</a></li>';
-                echo '<li><a class="btn" href="signup.php" role="button">sign out</a></p></li>';
+                echo '<li><a href="editprofile.php" role="button">editprofile</a></li>';
+                echo '<li><a class="btn signout" role="button">sign out</a></p></li>';
               }
               else
               {
@@ -55,7 +55,6 @@
               }
               ?>
           </ul>
-          <li>$_SESSION["eMail"]</li>
         </div>
       </div>
     </nav>

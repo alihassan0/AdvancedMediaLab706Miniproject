@@ -17,6 +17,7 @@
         <tr></tr>
       </tbody>
     </table>
+    <a class="btn btn-default buy" role="button">confirm</a></p>
 <?php
     require_once("templates/footer.php");
 ?>
