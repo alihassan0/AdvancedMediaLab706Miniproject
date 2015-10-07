@@ -94,8 +94,9 @@ function buy($id , $quantity) {
 
 function signUp($eMail,$password,$firstname,$lastname) {
     $conn = new mysqli( $GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname'] );
-    $sql = "select * from user where eMail = " . $eMail .";";
+    $sql = "select * from user where eMail = '$eMail';";
     $result = $conn->query( $sql );
+    $row = $result->fetch_assoc();
     if ( $result->num_rows > 0 ) {
         echo '<script language="javascript">';
         echo 'alert("this mail is already used")';
